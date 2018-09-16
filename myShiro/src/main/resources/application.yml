@@ -1,0 +1,26 @@
+server:
+  context-path: /myShiro
+  port: 8989
+  jsp-servlet:
+    init-parameters:
+      development: true
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: hr
+    password: hr
+    type: com.alibaba.druid.pool.DruidDataSource
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  profiles:
+    active: product
+mybatis:
+    type-aliases-package: com.baizhi.entity
+    mapper-locations: classpath:/com/baizhi/mapper/*Mapper.xml
