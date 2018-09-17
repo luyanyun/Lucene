@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.UserDao">
+    <insert id="insert" parameterType="User">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            SELECT  s1.nextval from dual
+        </selectKey>
+        INSERT INTO  user1 VALUES (#{id},#{name},#{password},#{sex})
+    </insert>
+    <update id="update" parameterType="User">
+        UPDATE user1 set NAME=#{name},sex=#{sex},password=#{password,jdbcType=VARCHAR} WHERE id=#{id}
+    </update>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete FROM user1 WHERE id=#{id}
+
+    </delete>
+    <select id="queryAll" resultType="User">
+        SELECT id,name,password,sex from user1
+    </select>
+</mapper>
+
+
+
+
+
+
+
